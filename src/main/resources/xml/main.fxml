@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="858.0" prefWidth="1217.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+   <children>
+      <AnchorPane fx:id="leftBar" layoutX="-6.0" prefHeight="858.0" prefWidth="300.0" style="-fx-background-color: #adadad;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="btnAnalysis" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="244.0" prefHeight="57.0" prefWidth="241.0" text="Analysis" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="TRENDING_UP" size="40" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnSample" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="67.0" prefHeight="57.0" prefWidth="241.0" text="Samples" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="FILE_DOCUMENT" size="40" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="contentPane" layoutX="299.0" prefHeight="858.0" prefWidth="918.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
