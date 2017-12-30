@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="contentPane" prefHeight="618.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AnalyzeController">
+<AnchorPane fx:id="contentPane" prefHeight="618.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AnalyzeController">
    <children>
       <Label layoutX="87.0" layoutY="26.0" text="Batch Analyzer">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <MaterialIconView id="batchAnalyzerBackBtn" fx:id="batchAnalyzerBackBtn" glyphName="ARROW_BACK" layoutX="35.0" layoutY="55.0" onMouseClicked="#handleAction" size="24" />
+      <MaterialIconView id="batchAnalyzerBackBtn" fx:id="batchAnalyzerBackBtn" glyphName="ARROW_BACK" layoutX="35.0" layoutY="55.0" size="24" />
    </children>
 </AnchorPane>
