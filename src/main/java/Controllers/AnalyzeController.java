@@ -1,15 +1,11 @@
 package Controllers;
 
+import com.jfoenix.controls.JFXComboBox;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.text.View;
-import javax.swing.text.ViewFactory;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,9 +18,25 @@ public class AnalyzeController implements Initializable {
     @FXML
     private MaterialIconView batchAnalyzerBackBtn;
 
+    @FXML
+    private JFXComboBox<String> ddNoCoarse;
+
+    @FXML
+    private JFXComboBox<String> ddNoFine;
+
+    @FXML
+    private JFXComboBox<String> ddSpecification;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("Analysis Controller Initialized");
+
+        ddNoCoarse.getItems().addAll("0", "1", "2", "3", "4");
+        ddNoFine.getItems().addAll("0", "1", "2", "3", "4");
+        ddSpecification.getItems().addAll("ASTM C33", "CALTRANS 2015");
+
+
         pf = new PaneFactory(contentPane);
 
         batchAnalyzerBackBtn.setOnMouseClicked(event -> {

@@ -1,7 +1,6 @@
 package Controllers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
@@ -36,9 +35,4 @@ public class MainController implements Initializable {
             pf.setPane("samples");
         });
     }
-
-    public void handleNavigation(ActionEvent event) {
-        System.out.println(event.getSource().toString());
-    }
-
 }
