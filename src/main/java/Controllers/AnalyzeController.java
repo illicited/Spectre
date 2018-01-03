@@ -1,12 +1,17 @@
 package Controllers;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AnalyzeController implements Initializable {
@@ -27,10 +32,12 @@ public class AnalyzeController implements Initializable {
     @FXML
     private JFXComboBox<String> ddSpecification;
 
+    @FXML
+    private JFXButton analysisGoBtn;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Analysis Controller Initialized");
 
         ddNoCoarse.getItems().addAll("0", "1", "2", "3", "4");
         ddNoFine.getItems().addAll("0", "1", "2", "3", "4");
@@ -42,5 +49,63 @@ public class AnalyzeController implements Initializable {
         batchAnalyzerBackBtn.setOnMouseClicked(event -> {
             pf.setPane("default");
         });
+
+        analysisGoBtn.setOnMouseClicked(event -> {
+            int coarse = 0;
+            int fine = 0;
+            String spec = "";
+
+            if(ddNoCoarse.getValue() != null && ddNoFine.getValue() != null && ddSpecification.getValue() != null) {
+                coarse = Integer.parseInt(ddNoCoarse.getValue());
+                fine = Integer.parseInt(ddNoFine.getValue());
+                spec = ddSpecification.getValue();
+                setupAnalysisPane(coarse, fine, spec);
+
+                ddNoCoarse.setValue(null);
+                ddNoFine.setValue(null);
+                ddSpecification.setValue(null);
+
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Values not provided");
+                alert.setHeaderText("No options were selected");
+                alert.setContentText("Please select a number of coarse and fine aggregates and a specification");
+
+                ddNoCoarse.setValue(null);
+                ddNoCoarse.setValue(null);
+                ddSpecification.setValue(null);
+
+                alert.showAndWait();
+            }
+
+        });
+    }
+
+    public void setupAnalysisPane(int numOfCoarse, int numOfFine, String specification) {
+        ArrayList<Label> labels = new ArrayList<>();
+        ArrayList<JFXTextField> textFields = new ArrayList<>();
+
+        labels.add(new Label("Target"));
+        labels.add(new Label("Actual"));
+        labels.add(new Label("Cement #1"));
+        labels.add(new Label("Cement #2"));
+        labels.add(new Label("Cementitious #1"));
+        labels.add(new Label("Cementitious #2"));
+        labels.add(new Label("Water #1"));
+        labels.add(new Label("Water #2"));
+
+
+        for(int i = 0; i < numOfCoarse; i++ ) {
+            labels.add(new Label("Coarse Agg #" + i));
+        }
+        for(int i = 0; i < numOfFine; i++ ) {
+            labels.add(new Label("Fine Agg #" + i));
+        }
+
+        for(int i = 0; i < labels.size() - 2; i++) {
+            textFields.add(new JFXTextField());
+        }
+
+        System.out.println(numOfCoarse + " " + numOfFine + " " + specification);
     }
 }

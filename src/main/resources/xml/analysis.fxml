@@ -37,6 +37,6 @@
             <JFXComboBox fx:id="ddSpecification" prefHeight="32.0" prefWidth="230.0" promptText="Applicable Specification" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <JFXButton layoutX="615.0" layoutY="179.0" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #adadad;" text="Go" AnchorPane.leftAnchor="615.0" AnchorPane.topAnchor="179.0" />
+      <JFXButton fx:id="analysisGoBtn" layoutX="615.0" layoutY="179.0" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #adadad;" text="Go" AnchorPane.leftAnchor="615.0" AnchorPane.topAnchor="179.0" />
    </children>
 </AnchorPane>
