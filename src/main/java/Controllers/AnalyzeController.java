@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -81,9 +82,10 @@ public class AnalyzeController implements Initializable {
         });
     }
 
-    public void setupAnalysisPane(int numOfCoarse, int numOfFine, String specification) {
+    private void setupAnalysisPane(int numOfCoarse, int numOfFine, String specification) {
         ArrayList<Label> labels = new ArrayList<>();
         ArrayList<JFXTextField> textFields = new ArrayList<>();
+        GridPane gp = new GridPane();
 
         labels.add(new Label("Target"));
         labels.add(new Label("Actual"));
@@ -96,16 +98,24 @@ public class AnalyzeController implements Initializable {
 
 
         for(int i = 0; i < numOfCoarse; i++ ) {
-            labels.add(new Label("Coarse Agg #" + i));
+            labels.add(new Label("Coarse Agg #" + (i + 1)));
         }
         for(int i = 0; i < numOfFine; i++ ) {
-            labels.add(new Label("Fine Agg #" + i));
+            labels.add(new Label("Fine Agg #" + (i + 1)));
         }
 
         for(int i = 0; i < labels.size() - 2; i++) {
             textFields.add(new JFXTextField());
         }
+        gp.addRow(1, labels.get(0));
 
-        System.out.println(numOfCoarse + " " + numOfFine + " " + specification);
+        for (int i = 2; i < labels.size(); i++) {
+            gp.addRow(i, labels.get(i));
+        }
+
+        AnchorPane.setLeftAnchor(gp, 100.0);
+        AnchorPane.setTopAnchor(gp, 300.0);
+        contentPane.getChildren().add(gp);
+
     }
 }
