@@ -4,11 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
@@ -83,9 +87,21 @@ public class AnalyzeController implements Initializable {
     }
 
     private void setupAnalysisPane(int numOfCoarse, int numOfFine, String specification) {
+        contentPane.getChildren().clear();
+
         ArrayList<Label> labels = new ArrayList<>();
-        ArrayList<JFXTextField> textFields = new ArrayList<>();
+        ArrayList<JFXTextField> textFieldsTarget = new ArrayList<>();
+        ArrayList<JFXTextField> textFieldActual = new ArrayList<>();
+
         GridPane gp = new GridPane();
+        gp.setPadding(new Insets(5));
+        gp.setHgap(5.0);
+        gp.setVgap(5.0);
+        ColumnConstraints column1 = new ColumnConstraints(100);
+        ColumnConstraints column2 = new ColumnConstraints(100);
+        ColumnConstraints column3 = new ColumnConstraints(100);
+        gp.getColumnConstraints().addAll(column1, column2, column3);
+
 
         labels.add(new Label("Target"));
         labels.add(new Label("Actual"));
@@ -104,13 +120,27 @@ public class AnalyzeController implements Initializable {
             labels.add(new Label("Fine Agg #" + (i + 1)));
         }
 
+        //populate textfields for the two columns containing input
         for(int i = 0; i < labels.size() - 2; i++) {
-            textFields.add(new JFXTextField());
+            textFieldsTarget.add(new JFXTextField());
         }
-        gp.addRow(1, labels.get(0));
+        for(int i = 0; i < labels.size() - 2; i++) {
+            textFieldActual.add(new JFXTextField());
+        }
 
-        for (int i = 2; i < labels.size(); i++) {
-            gp.addRow(i, labels.get(i));
+        //generate the first column of the gridpane
+        for(int i = 0; i < labels.size()-2; i++) {
+            gp.add(labels.get(i+2), 0, i+1);
+        }
+        //generate the second column of the gridpane
+        gp.add(labels.get(0), 1, 0);
+        for(int i = 0; i < labels.size() - 2; i++) {
+            gp.add(textFieldsTarget.get(i), 1, i+1);
+        }
+        //generate the third column of the gridpane
+        gp.add(labels.get(1), 2, 0);
+        for(int i = 0; i < labels.size() - 2; i++) {
+            gp.add(textFieldActual.get(i), 2, i+1);
         }
 
         AnchorPane.setLeftAnchor(gp, 100.0);
