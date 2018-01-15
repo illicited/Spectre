@@ -10,6 +10,7 @@
 <?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+            fx:id="contentPane"
             fx:controller="Controllers.SampleController"
             prefHeight="400.0" prefWidth="600.0">
         <children>
@@ -18,6 +19,6 @@
                     <Font size="24.0" />
                 </font>
             </Label>
-            <MaterialIconView id="sampleBackBtn" fx:id="sampleBackBtn" glyphName="ARROW_BACK" layoutX="35.0" layoutY="55.0" size="24" />
+            <MaterialIconView  fx:id="sampleBackBtn" glyphName="ARROW_BACK" layoutX="35.0" layoutY="55.0" size="24" />
         </children>
 </AnchorPane>

@@ -14,7 +14,9 @@ public class Main extends Application {
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("xml/main.fxml"));
-            primaryStage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("CSS/style.css");
+            primaryStage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

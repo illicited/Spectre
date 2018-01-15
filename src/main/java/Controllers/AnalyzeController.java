@@ -87,16 +87,20 @@ public class AnalyzeController implements Initializable {
     }
 
     private void setupAnalysisPane(int numOfCoarse, int numOfFine, String specification) {
-        contentPane.getChildren().clear();
+        Node checkGP = contentPane.lookup("#batchValuesGrid");
+        if(checkGP != null) {
+            contentPane.getChildren().remove(checkGP);
+        }
 
         ArrayList<Label> labels = new ArrayList<>();
         ArrayList<JFXTextField> textFieldsTarget = new ArrayList<>();
         ArrayList<JFXTextField> textFieldActual = new ArrayList<>();
 
         GridPane gp = new GridPane();
+        gp.setId("batchValuesGrid");
         gp.setPadding(new Insets(5));
-        gp.setHgap(5.0);
-        gp.setVgap(5.0);
+        gp.setHgap(10.0);
+        gp.setVgap(10.0);
         ColumnConstraints column1 = new ColumnConstraints(100);
         ColumnConstraints column2 = new ColumnConstraints(100);
         ColumnConstraints column3 = new ColumnConstraints(100);
