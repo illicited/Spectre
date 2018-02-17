@@ -21,6 +21,9 @@ public class MainController implements Initializable {
     private JFXButton btnSample;
 
     @FXML
+    private JFXButton btnDesigns;
+
+    @FXML
     private AnchorPane contentPane;
 
     @Override

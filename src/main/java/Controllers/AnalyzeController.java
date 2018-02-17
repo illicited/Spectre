@@ -96,7 +96,12 @@ public class AnalyzeController implements Initializable {
         ArrayList<JFXTextField> textFieldsTarget = new ArrayList<>();
         ArrayList<JFXTextField> textFieldActual = new ArrayList<>();
 
+        JFXButton btnCheckTolerances = new JFXButton("Check Weights");
+        btnCheckTolerances.setStyle("-fx-background-color: #adadad;");
+        btnCheckTolerances.setPrefHeight(32);
+        btnCheckTolerances.setPrefWidth(105);
         GridPane gp = new GridPane();
+
         gp.setId("batchValuesGrid");
         gp.setPadding(new Insets(5));
         gp.setHgap(10.0);
@@ -104,7 +109,10 @@ public class AnalyzeController implements Initializable {
         ColumnConstraints column1 = new ColumnConstraints(100);
         ColumnConstraints column2 = new ColumnConstraints(100);
         ColumnConstraints column3 = new ColumnConstraints(100);
-        gp.getColumnConstraints().addAll(column1, column2, column3);
+        ColumnConstraints column4 = new ColumnConstraints(100);
+        ColumnConstraints column5 = new ColumnConstraints(100);
+        gp.getColumnConstraints().addAll(column1, column2, column3, column4, column5);
+
 
 
         labels.add(new Label("Target"));
@@ -149,7 +157,13 @@ public class AnalyzeController implements Initializable {
 
         AnchorPane.setLeftAnchor(gp, 100.0);
         AnchorPane.setTopAnchor(gp, 300.0);
-        contentPane.getChildren().add(gp);
+        AnchorPane.setLeftAnchor(btnCheckTolerances, 615.0);
+        AnchorPane.setBottomAnchor(btnCheckTolerances, 100.0);
+        contentPane.getChildren().addAll(gp, btnCheckTolerances);
 
+    }
+
+    private double checkTolerance(double target, double actual, String field, String spec) {
+        return 0.0;
     }
 }

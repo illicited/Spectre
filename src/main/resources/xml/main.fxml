@@ -9,20 +9,28 @@
    <children>
       <AnchorPane fx:id="leftBar" layoutX="-6.0" prefHeight="858.0" prefWidth="300.0" style="-fx-background-color: #adadad;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton fx:id="btnAnalysis" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="244.0" prefHeight="57.0" prefWidth="241.0" text="Analysis" textFill="WHITE">
+            <JFXButton fx:id="btnAnalysis" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="244.0" prefHeight="57.0" prefWidth="241.0" text="Analysis">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="TRENDING_UP" size="40" />
+                  <MaterialDesignIconView glyphName="TRENDING_UP" size="40" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnSample" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="67.0" prefHeight="57.0" prefWidth="241.0" text="Samples" textFill="WHITE">
+            <JFXButton fx:id="btnSample" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="67.0" prefHeight="57.0" prefWidth="241.0" text="Samples">
                <font>
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <MaterialDesignIconView fill="WHITE" glyphName="FILE_DOCUMENT" size="40" />
+                  <MaterialDesignIconView glyphName="FILE_DOCUMENT" size="40" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnDesigns" alignment="BASELINE_LEFT" layoutX="58.0" layoutY="157.0" prefHeight="57.0" prefWidth="241.0" text="Designs">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView glyphName="FILE_CHART" size="40" />
                </graphic>
             </JFXButton>
          </children>
